@@ -1,0 +1,294 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  line-height: 1.5;
+}
+
+:root {
+  /* colors */
+
+  /* Primary colors */
+
+  --full-slider-bar: #a5f3eb;
+  --slider-background: hsl(174, 86%, 45%);
+  --discount-text: hsl(15, 100%, 70%);
+  --discount-bg: hsl(14, 92%, 95%);
+  --cta-text: hsl(226, 100%, 87%);
+
+  /* Neutral colors */
+  --pricing-card-background: hsl(0, 0%, 100%);
+  --main-background: hsl(230, 100%, 99%);
+  --empty-slider-bar: #eaeefb;
+  --toggle-background: hsl(223, 50%, 87%);
+  --text: hsl(225, 20%, 60%);
+  --text-CTA-background: hsl(227, 35%, 25%);
+
+  /* Typography */
+
+  --ff-main: "Manrope";
+  --fs-main: 15px;
+}
+
+body {
+  font-family: var(--ff-main);
+  background: var(--main-background);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.wrapper {
+  min-height: 100vh;
+  background: url(./images/bg-pattern.svg) no-repeat;
+  background-size: 100% 50%;
+  width: 100%;
+  padding: 2rem 1rem;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 145px;
+  background: url(./images/pattern-circles.svg) center no-repeat;
+  margin-bottom: 1rem;
+}
+
+header h2,
+.card-top .bold {
+  color: #000;
+}
+
+span.bold {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+#option {
+  text-transform: uppercase;
+}
+
+.card {
+  max-width: 500px;
+  margin: 1rem auto;
+  background: var(--pricing-card-background);
+  box-shadow: 0px 5px 10px #ccc;
+  padding: 1rem 0;
+  border-radius: 8px;
+}
+
+.card-top {
+  padding: 1rem;
+  display: grid;
+  width: 100%;
+  grid-template-areas:
+    "one one"
+    "two two"
+    "three three"
+    "four four";
+  gap: 1rem 2rem;
+  align-items: center;
+}
+
+@media only screen and (min-width: 500px) {
+  .card-top {
+    padding: 1rem;
+    display: grid;
+    width: 100%;
+    grid-template-areas:
+      "one three"
+      "two two"
+      "four four";
+    gap: 1rem 2rem;
+  }
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(
+    90deg,
+    var(--full-slider-bar) 50%,
+    var(--empty-slider-bar) 50%
+  );
+  outline: none;
+  transition: all 0.2s;
+  -webkit-transition: 0.2s;
+  border-radius: 15px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 35px;
+  height: 35px;
+  background: var(--slider-background) url(./images/icon-slider.svg) center
+    no-repeat;
+  box-shadow: 0px 3px 8px var(--slider-background);
+  padding: 0.3rem;
+  border-radius: 50%;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 35px;
+  height: 35px;
+  background: var(--slider-background) url(./images/icon-slider.svg) center
+    no-repeat;
+  box-shadow: 0px 3px 8px var(--slider-background);
+  padding: 0.3rem;
+  border-radius: 50%;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 26px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--slider-background);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--slider-background);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 18px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.card-top > *:not(input[type="range"]) {
+  text-align: center;
+}
+
+.card-bottom {
+  text-align: center;
+  gap: 1.4rem;
+  padding: 1rem 0;
+}
+
+.card-bottom ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-bottom li {
+  padding-left: 0.5rem;
+  margin: 0.3rem 0;
+}
+
+.card-bottom li::marker {
+  content: url(./images/icon-check.svg);
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  outline: none;
+  padding: 0.4rem 3rem;
+  background: none;
+  cursor: pointer;
+  background: hsl(15, 100%, 70%);
+  color: inherit;
+}
+
+.btn-primary {
+  background: var(--slider-background);
+}
+
+.btn-dark {
+  background: var(--text-CTA-background);
+  color: var(--cta-text);
+}
+
+.btn-round {
+  border-radius: 1rem;
+}
+
+#yearly-billing::after {
+  content: "25%";
+  background: var(--discount-bg);
+  color: var(--discount-text);
+  display: inline-block;
+  margin-left: 0.6rem;
+  border-radius: 8px;
+  padding: 4px 3px;
+}
+
+@media only screen and (min-width: 500px) {
+  #yearly-billing::after {
+    content: "25% discount";
+  }
+}
+
+input[type="range"] {
+  display: block;
+  width: 100%;
+}
+
+.card-top-content:nth-child(1) {
+  grid-area: one;
+}
+
+.card-top-content:nth-child(2) {
+  grid-area: two;
+}
+
+.card-top-content:nth-child(3) {
+  grid-area: three;
+}
+
+.card-top-content:nth-child(4) {
+  grid-area: four;
+}

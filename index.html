@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Interactive pricing component</title>
+    <script src="./main.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <header>
+          <h2>Simple, traffic-based pricing</h2>
+          <p>Sign-up for our 30-day trial. No credit card required</p>
+        </header>
+        <section class="card">
+          <div class="card-top">
+            <div class="card-top-content" id="option">100K PAGEVIEWS</div>
+            <div class="card-top-content">
+              <input
+                type="range"
+                id="range"
+                min="0"
+                max="4"
+                step="1"
+                value="2"
+              />
+            </div>
+            <div class="card-top-content">
+              <span id="price"><span class="bold">$ 16.00</span> / month</span>
+            </div>
+            <div class="card-top-content">
+              <span>Monthly Billing</span>
+              <label for="billing-checkbox" class="switch">
+                <input type="checkbox" id="billing-toggle" />
+                <span class="slider round" id="billing-toggle-button"></span>
+              </label>
+              <span id="yearly-billing">Yearly Billing</span>
+            </div>
+          </div>
+          <hr />
+          <div class="card-bottom">
+            <ul>
+              <li>Unlimited websites</li>
+              <li>100% data ownership</li>
+              <li>Email reports</li>
+            </ul>
+            <button class="btn btn-dark btn-round">Start my trial</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
